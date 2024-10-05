@@ -1,14 +1,11 @@
-body
-{
+body{
     font-family: Arial;
 }    
-header
-{
+header{
     text-align: center;
     background-color: #f9f2ec;
 }
-.imagem_header
-{
+.imagem_header{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -17,13 +14,11 @@ header
     height: 30%; 
 }
 
-.navbar 
-{
+.navbar {
     background-color: white; 
 }
 
-.navbar ul
-{
+.navbar ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -31,15 +26,13 @@ header
     justify-content: space-between;
 }
 
-.navbar li 
-{
+.navbar li {
     margin: 0px 2px;
     flex-grow: 1;
     text-align: center;
 }
 
-.navbar a 
-{
+.navbar a {
     display: block;
     padding:  10px 20px;
     text-decoration: none;
@@ -51,20 +44,17 @@ header
     transition: background-color 0.3s ease;
 }
 
-.navbar a:hover 
-{
+.navbar a:hover {
     background-color: #555555; 
 }
 
-footer
-{
+footer{
     text-align: center;
     background-color: #333232;
     color: #fff;
 }
 
-#fotografias h3, #video h3, #poema h3
-{
+#fotografias h3, #video h3, #poema h3{
     color: #af4c4c;
     font-size: 24px;
     border-bottom: 2px solid #af4c4c;
@@ -116,22 +106,19 @@ footer
     transform: scale(1.05);
 }
 
-.video-container 
-{
+.video-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.poema-titulo
-{
+.poema-titulo{
     color: #af4c4c;
     font-size: 19px;
     text-align: center;
 }
 
-#poema
-{
+#poema{
     text-align: center;
     font-size: 16px;
     margin-bottom: 50px;
@@ -160,4 +147,12 @@ label {
 
 input {
     font-size: medium;
+}
+
+a{
+    color: #af4c4c;
+}
+
+h2{
+    color: #af4c4c;
 }
