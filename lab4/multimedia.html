@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Cidade</title>
         <link rel="stylesheet" href="styles.css">
+        
     </head>
     <body>
         <header>
@@ -29,34 +30,38 @@
                 </p>
             </section>
 
-            <section id="fotografias">
+            <section id="fotografias" class="image-gallery">
                 <h3>Fotografias</h3>
-
-                <p>
-                    <a href="images/coimbra1_grande.jpg" target="fotografia_grande">
-                        <img src="images/coimbra1_pequena.jpg" alt="foto de Coimbra" >
+                
+                <div class="image-cards">
+                    <a href="images/coimbra1_grande.jpg" target="fotografia_grande" class="image-card">
+                        <img src="images/coimbra1_pequena.jpg" alt="foto de Coimbra">
                     </a>
-
-                    <a href="images/coimbra2_grande.jpg" target="fotografia_grande">
+            
+                    <a href="images/coimbra2_grande.jpg" target="fotografia_grande" class="image-card">
                         <img src="images/coimbra2_pequena.jpg" alt="ruas da cidade de Coimbra">
                     </a>
-
-                    <a href="images/coimbra3_grande.jpg" target="fotografia_grande">
+            
+                    <a href="images/coimbra3_grande.jpg" target="fotografia_grande" class="image-card">
                         <img src="images/coimbra3_pequena.jpg" alt="foto de Coimbra">
                     </a>
-                </p>
-
-                <iframe name="fotografia_grande" width="800" height="533"  title="Imagem Grande"></iframe>
-
+                </div>
+            
+                
             </section>
+            
+            <iframe name="fotografia_grande" width="800" height="533" title="Imagem Grande" class="iframe-imagens" src="images/coimbra3_grande.jpg"></iframe>
 
             <section id="video">
                 <h3>Vídeo</h3>
-                <iframe width="370" height="300" src="https://www.youtube.com/embed/TSIf-ngo0tA?si=aANgQFIjJfd1uRSJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-container">
+                    <iframe width="470" height="400" src="https://www.youtube.com/embed/TSIf-ngo0tA?si=aANgQFIjJfd1uRSJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="iframe-video">></iframe>
+                </div>
             </section>
             
             <section id="poema">
                 <h3>Poema</h3>
+                <h4 class="poema-titulo">Cidade de Saberes e Tradições</h4>
                 <p>
                     Coimbra, cidade de saber,<br>
                     Nas colinas o teu encanto a florescer,<br>
