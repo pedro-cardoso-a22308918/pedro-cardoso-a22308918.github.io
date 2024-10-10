@@ -4,6 +4,7 @@ body{
 header{
     text-align: center;
     background-color: #f9f2ec;
+    text-transform: uppercase;
 }
 .imagem_header{
     display: block;
@@ -162,3 +163,45 @@ figcaption{
     font-size: 11px;
 }
 
+ul li:nth-child(1) {
+    color: rgb(45, 108, 58);
+}
+
+ul li:nth-child(2) {
+    color: goldenrod;
+}
+
+ul li:nth-child(3) {
+    color: rgb(107, 8, 92);
+}
+
+ul li:nth-child(4) {
+    color: rgb(132, 42, 42);
+}
+
+ul li:nth-child(5) {
+    color: steelblue;
+}
+
+ol {
+    list-style-type: lower-roman;
+}
+
+thead th {
+    background-color: #305f5f;
+    color: white;
+}
+
+tbody tr:nth-child(odd) { /*impar*/
+    background-color: #af4c4c;
+    color: white;
+}
+
+tbody tr:nth-child(even) { /*par*/
+    background-color: #305f5f;
+    color: white;
+}
+
+ul li, ol li {
+    font-size: 2em; /* font size 2x bigger thant father*/
+}

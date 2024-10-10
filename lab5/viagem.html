@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Viagem</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="titulo_header">Coimbra</h1>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="local.html">Localização</a></li> 
+                    <li><a href="multimedia.html">Multimédia</a></li>
+                    <li><a href="info.html">Informação</a></li>
+                    <li><a href="quizz.html">Quizz</a></li>
+                    <li><a href="viagem.html">Viagem</a></li>
+                    <li><a href="pontosinteresse.html">Pontos de Interesse</a></li>
+                </ul>
+            </nav>
+            <img src="images/foto coimbra.jpg" class="imagem_header" alt="foto de coimbra" class="imagem_centralizada">
+        </header>
+<body>
+    <h2>Viagem</h2>
+
+    <form method="get" action="https://postman-echo.com/get">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required><br><br>
+
+        <label for="apelido">Apelido:</label>
+        <input type="text" name="apelido"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label for="data_partida">Data de partida:</label>
+        <input type="date" name="data_partida" required><br><br>
+
+        <label for="data_regresso">Data de regresso:</label>
+        <input type="date" name="data_regresso"><br><br>
+
+        <label for="num_passageiros">Número de passageiros:</label>
+        <input type="number" name="num_passageiros" min="1"><br><br>
+
+        <label for="transporte_favorito">Meio de transporte favorito:</label>
+        <select name="transporte_favorito">
+            <option value="carro">Carro</option>
+            <option value="comboio">Comboio</option>
+            <option value="aviao">Avião</option>
+            <option value="outro">Outro</option>
+        </select><br><br>
+
+        <label>Serviço desejado:</label><br>
+        <input type="radio" name="servico" value="basico">     
+        <label for="basico">Básico</label><br>
+        <input type="radio" name="servico" value="premium">
+        <label for="premium">Premium</label><br><br>
+
+        <label for="pedidos_especiais">Pedidos especiais:</label><br>
+        <textarea name="pedidos_especiais" rows="4" cols="50"></textarea><br><br>
+
+        <label for="valor_esperado">Valor esperado por pessoa e por dia (€):</label>
+        <input type="number" name="valor_esperado" min="0" step="0.01"><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <footer>
+        <p>DIW 2024</p>
+        <a href="/index.html">Voltar para a pagina inicial</a></li>
+    </footer>
+</body>
+</html>
