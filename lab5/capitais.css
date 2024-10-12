@@ -4,87 +4,17 @@
     margin: 0;
     box-sizing: border-box; /* medidas sao tomadas da borda */
   }
-  
-  
-  header, main, article {
-    /* centrando o texto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  main {
-    height: 85vh;
-    background-color:grey;
-    padding: 4em 4em;
-  }
-  
-  article {
-    height: 50vh;
-    width: 100vw;
-    background: rgb(34, 130, 227);
-    color: white;
-    font-style: italic;
-  }
 
-  #paisagem-div{
-    position: relative;
+  body {
+    overflow-x: hidden; 
   }
-
-  #paisagem-img{
-    width: 100vw;
-  }
-
-  #paisagem-autor{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 0.5em;
-   
-  }
-
-  #cidades{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5vw;
-    background-color: white;
-  }
-  
-  .image-item {
-    display: flex;
-    margin: 10px; /* Espaçamento entre as seções */
-  }
-  
-  .image-item img {
-    width: 100px; /* Define a largura da imagem */
-    border-radius: 20px 0 0 20px; /* Adiciona bordas arredondadas */
-  }
-  
-  .image-item p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100%;
-    border-radius: 0 20px 20px 0; /* Adiciona bordas arredondadas */
-    background-color: white;
-    color: #000;
-  }
-  
 
   header {
-    display: flex;
-    background: purple;
+    height: 10vh; 
+    background: rgb(6, 180, 203);
     color: white;
+    top: 0;  
     position: sticky;
-    height: 10vh;
-    top: 0;
-
-     /* alinhando logo e menu */
     display:flex;
     justify-content: space-between;  
     align-items: center;
@@ -97,41 +27,140 @@
   
   header nav {
     display:flex;
-    justify-content: flex-end;  
+    justify-content: flex-end;
   }
   
   nav a {
-    padding: 20px;
+    padding: 0 1em;
     text-decoration: none;
     font-size: 1rem;
     color: lightgray;
   }
 
-  nav a:link {
+  nav a:last-child {
+    background-color: rgb(71, 2, 162);
+  }
+  
+  #poema {
+    width: 100vw;
+    height: 50vh;
+    background-color: #f5f5dc; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  #poema-conteudo {
+    text-align: center; 
+  }
+  
+  #poema p {
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #333; 
+  }
+  
+  #autor {
+    display: block;
+    margin-top: 10px;
+    font-style: italic; 
+    font-weight: normal; 
+    color: #555; 
+  }
+
+  #paisagem {
+    width: 99vw; 
+    height: auto;
+    margin: 0; 
+    padding: 0;
+  }
+  
+  #paisagem-div {
+    position: relative; 
+  }
+  
+  #paisagem-img {
+    width: 100vw; 
+    height: auto; 
+  }
+  
+  #paisagem-autor {
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 0.5em; 
+    font-size: 0.9rem; 
     color: white;
   }
 
-  nav a:visited {
-    color: white;
+  article#cidades{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5vw;
+    background-color: white;
+  }
+  
+  #cidades section{
+    display: flex;
+    margin: 10px;
   }
 
-  nav a:hover {
-    color: black;
+  #cidades img {
+    width: 100px; 
+    border-radius: 20px 0 0 20px; 
   }
 
-  nav a:active {
-    color: black;
+  #cidades div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    background-color: white;
+    color: #000;
   }
+  
+  #experimenta {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+}
 
-  nav:last-child {
-    color:aqua;
-  }
+.circle {
+    width: 100px; 
+    height: 100px; 
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+    font-weight: bold; 
+    position: relative; 
+    cursor: pointer; 
+}
 
-  article:last-child {
-    height: 100vh;
-    background: black;
-    color: white;
-  }
+.hidden-text {
+    display: none;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.circle:hover .hidden-text {
+    display: block; /
+}
 
   footer {
     height:5vh;
@@ -140,3 +169,4 @@
     padding: 0 2vw;
     align-items: center;
   }
+  
