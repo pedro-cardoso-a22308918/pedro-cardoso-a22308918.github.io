@@ -94,6 +94,9 @@ footer{
     flex-wrap: wrap; 
 }
 
+.image-card{
+    cursor: zoom-in;
+}
 
 .image-card img {
     width: 150px;
