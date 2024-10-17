@@ -35,7 +35,6 @@
     text-decoration: none;
     font-size: 1rem;
     color: lightgray;
-    border-radius: 10px;
   }
 
   nav a:last-child {
@@ -95,26 +94,26 @@
     color: white;
   }
 
-  article.cidades{
+  article#cidades{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1vw;
+    padding: 5vw;
     background-color: white;
   }
   
-  .cidades section{
+  #cidades section{
     display: flex;
     margin: 10px;
   }
 
-  .cidades img {
+  #cidades img {
     width: 100px; 
     border-radius: 20px 0 0 20px; 
   }
 
-  .cidades div{
+  #cidades div{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,7 +123,7 @@
     background-color: white;
     color: #000;
   }
-
+  
   #experimenta {
     display: flex; 
     justify-content: center; 

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quizz</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1 class="titulo_header">Coimbra</h1>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html"><span class="material-icons">home</span> Home</a></li>
+                    <li><a href="local.html"><span class="material-icons">place</span> Localização</a></li>
+                    <li><a href="multimedia.html"><span class="material-icons">photo_library</span> Multimédia</a></li>
+                    <li><a href="info.html"><span class="material-icons">info</span> Informação</a></li>
+                    <li><a href="quizz.html"><span class="material-icons">quiz</span> Quizz</a></li>
+                    <li><a href="viagem.html"><span class="material-icons">flight</span> Viagem</a></li>
+                    <li><a href="pontosinteresse.html"><span class="material-icons">location_on</span> Pontos de Interesse</a></li>
+                    <li><a href="capitais.html"><span class="material-icons">public</span> Capitais</a></li>
+                </ul>
+            </nav>
+            <img src="images/foto coimbra.jpg" class="imagem_header" alt="foto de coimbra" class="imagem_centralizada">
+        </header>
+<body>
+    <h2>Quizz</h2>
+
+    <form method="get" action="https://postman-echo.com/get">
+
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <p>Nome: <input type="text" name="nome" autocomplete="on" autofocus></p>
+            <p>Apelido: <input type="text" name="apelido"></p>
+            <p>Email: <input type="text" name="email"></p>
+        </fieldset>
+
+        <!-- Quiz sobre Coimbra -->
+    <fieldset>
+        <legend>Quiz sobre Coimbra</legend>
+
+        <!--Pergunta 1-->
+        <label for="monuments">1.Quais destes monumentos pertencem a Coimbra? (Escolha múltiplas opções)</label><br>
+        <input type="checkbox" name="monuments" value="Sé Velha">
+        <label for="sevelha">Sé Velha</label><br>
+        
+        <input type="checkbox" name="monuments" value="Torre de Belém">
+        <label for="torredebelem">Torre de Belém</label><br>
+
+        <input type="checkbox" name="monuments" value="Mosteiro de Santa Clara-a-Velha">
+        <label for="monasterio">Mosteiro de Santa Clara-a-Velha</label><br>
+
+        <input type="checkbox" name="monuments" value="Universidade de Coimbra">
+        <label for="universidade">Universidade de Coimbra</label><br>
+
+        <br>
+
+        <!--Pergunta 2-->
+        <label for="traje-color">2.Qual a cor tradicional do traje acadêmico de Coimbra?</label>
+        <input type="color" name="traje-color" value="#b3b3b3">
+
+        <br><br>
+
+        <!--Pergunta 3-->
+        <label for="steps">3.Quantos degraus tem a escadaria monumental da Universidade de Coimbra?</label>
+        <input type="number" name="steps" min="0" max="200" required>
+
+        <br><br>
+
+        <!--Pergunta 4-->
+        <label for="distance">4.Qual a distância aproximada em metros entre a Biblioteca Joanina e o Rio Mondego?</label>
+        <input type="range" name="distance" min="100" max="1000" step="50" value="500">
+        <span>(0-500metros)</span>
+
+        <br><br>
+        <!--Pergunta 5-->
+        <label for="university-image">5.Escolha a imagem correta da universidade de Coimbra:</label><br>
+        <input type="radio" name="university-image">
+        <label for="image1">
+            <img src="images/imagem 1 da pergunta.webp" alt="Imagem 1" width="300">
+        </label>
+        <input type="radio" name="university-image">
+        <label for="image2">
+            <img src="images/imagem 2 da pergunta.webp" alt="Imagem 2" width="300">
+        </label>
+
+        <br><br>
+
+        <!--Pergunta 6-->
+        <label for="founding-date">6.Quando foi fundada a Universidade de Coimbra?</label>
+        <input type="date" name="founding-date" required>
+
+        <br><br>
+
+        <!--Pergunta 7-->
+        <label for="opening-time">7.Qual o horário de abertura da Biblioteca Joanina?</label>
+        <input type="time" name="opening-time" required>
+
+        <br><br>
+
+        <!--Pergunta 8-->
+        <label for="opinion">8.Qual a sua opinião sobre a Universidade de Coimbra?</label><br>
+        <textarea name="opinion" rows="4" cols="50" placeholder="Escreva sua opinião aqui..." maxlength="200" required></textarea>
+
+        <br>
+        <!--Limpar a resposta-->
+        <input type="reset" value="Limpar Resposta">
+
+        <br><br>
+
+        <!--Pergunta 9-->
+        <label for="river-name">9.Qual é o rio que atravessa a cidade de Coimbra?</label>
+        <input type="text" name="river-name" placeholder="Digite o nome do rio" size="30">
+
+        <br><br>
+        <!--Submit-->
+        <input type="submit" value="Submeter">
+    </fieldset>
+
+    </form>
+
+    <footer>
+        <p>DIW 2024</p>
+        <a href="/index.html">Voltar para a pagina inicial</a></li>
+    </footer>
+</body>
+</html>
