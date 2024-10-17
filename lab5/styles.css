@@ -1,5 +1,6 @@
 body{
     font-family: Arial;
+    background-color: #faf4e5;
 }    
 header{
     text-align: center;
@@ -37,7 +38,7 @@ header{
     display: block;
     padding:  10px 20px;
     text-decoration: none;
-    background-color: #3d3d3d; 
+    background-color: #e57b50; 
     color: #fff; 
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -51,7 +52,7 @@ header{
 
 footer{
     text-align: center;
-    background-color: #333232;
+    background-color: #333333;
     color: #fff;
 }
 
