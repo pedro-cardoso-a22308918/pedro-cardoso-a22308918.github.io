@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{box-sizing: border-box;}
+            body{
+                margin: 0;
+                font-family: Arial;
+                font-size: 17px;
+                overflow: hidden;/* Impede que o conteúdo exceda o tamanho */
+            }
+            #myVideo{
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover; /* Para garantir que o vídeo cobre toda a tela */
+            }
+            .content{
+                position: fixed;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                color: #f1f1f1;
+                width: 100%;
+                padding: 20px;
+            }
+        </style>
+        <title>Video</title>
+    </head>
+    <body>
+        <video autoplay muted loop id="bg-video">
+            <source src="videos/video_montefuji.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    
+        <div class="content">
+            <h1>Explore o Mundo com Vídeos Incríveis</h1>
+            <p>Descubra a beleza de cada destino.</p>
+        </div>
+
+        <footer>
+            <p>DIW 2024</p>
+            <a href="/index.html">Voltar para a pagina inicial</a></li>
+        </footer>
+    </body>
+</html>

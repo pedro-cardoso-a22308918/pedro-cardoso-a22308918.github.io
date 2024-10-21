@@ -249,6 +249,7 @@ ul li, ol li {
 }
 
 /* mobile */
+/* FALTA corrigir o iframe do multimedia */
 @media (max-width: 768px) {
     body {
         display: block;

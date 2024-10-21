@@ -1,131 +1,175 @@
 * {
-    font-family: sans-serif;
-    padding: 0; 
-    margin: 0;
-    box-sizing: border-box; /* medidas sao tomadas da borda */
-  }
+  font-family: sans-serif;
+  padding: 0; 
+  margin: 0;
+  box-sizing: border-box; /* medidas sao tomadas da borda */
+}
 
-  body {
-    overflow-x: hidden; 
-  }
+body {
+  overflow-x: hidden; 
+}
 
-  header {
-    height: 10vh; 
-    background: rgb(6, 180, 203);
-    color: white;
-    top: 0;  
-    position: sticky;
-    display:flex;
-    justify-content: space-between;  
-    align-items: center;
-  }
-  
-  header div {
-    font-size: 2em;  
-    padding: 1em;
-  }
-  
-  header nav {
-    display:flex;
-    justify-content: flex-end;
-  }
-  
-  nav a {
-    padding: 0 1em;
-    text-decoration: none;
-    font-size: 1rem;
-    color: lightgray;
-    border-radius: 10px;
-  }
+header {
+  height: 10vh; 
+  background: rgb(6, 180, 203);
+  color: white;
+  top: 0;  
+  position: sticky;
+  display:flex;
+  justify-content: space-between;  
+  align-items: center;
+}
 
-  nav a:last-child {
-    background-color: rgb(71, 2, 162);
-  }
-  
-  #poema {
-    width: 100vw;
-    height: 50vh;
-    background-color: #f5f5dc; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-  }
-  
-  #poema-conteudo {
-    text-align: center; 
-  }
-  
-  #poema p {
-    font-size: 1.5rem; 
-    font-weight: bold; 
-    color: #333; 
-  }
-  
-  #autor {
-    display: block;
-    margin-top: 10px;
-    font-style: italic; 
-    font-weight: normal; 
-    color: #555; 
-  }
+header div {
+  font-size: 2em;  
+  padding: 1em;
+}
 
-  #paisagem {
-    width: 99vw; 
-    height: auto;
-    margin: 0; 
-    padding: 0;
-  }
-  
-  #paisagem-div {
-    position: relative; 
-  }
-  
-  #paisagem-img {
-    width: 100vw; 
-    height: auto; 
-  }
-  
-  #paisagem-autor {
-    position: absolute; 
-    bottom: 0; 
-    right: 0; 
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 0.5em; 
-    font-size: 0.9rem; 
-    color: white;
-  }
+header nav {
+  display:flex;
+  justify-content: flex-end;
+}
 
-  article.cidades{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1vw;
-    background-color: white;
-  }
-  
-  .cidades section{
-    display: flex;
-    margin: 10px;
-  }
+nav a {
+  padding: 0 1em;
+  text-decoration: none;
+  font-size: 1rem;
+  color: lightgray;
+  border-radius: 10px;
+}
 
-  .cidades img {
-    width: 100px; 
-    border-radius: 20px 0 0 20px; 
-  }
+nav a:last-child {
+  background-color: rgb(71, 2, 162);
+}
 
-  .cidades div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100%;
-    border-radius: 0 20px 20px 0;
-    background-color: white;
-    color: #000;
-  }
+#poema {
+  width: 100vw;
+  height: 50vh;
+  background-color: #f5f5dc; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
 
-  #experimenta {
+#poema-conteudo {
+  text-align: center; 
+}
+
+#poema p {
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+#autor {
+  display: block;
+  margin-top: 10px;
+  font-style: italic; 
+  font-weight: normal; 
+  color: #555; 
+}
+
+#paisagem {
+  width: 99vw; 
+  height: auto;
+  margin: 0; 
+  padding: 0;
+}
+
+#paisagem-div {
+  position: relative; 
+}
+
+#paisagem-img {
+  width: 100vw; 
+  height: auto; 
+}
+
+#paisagem-autor {
+  position: absolute; 
+  bottom: 0; 
+  right: 0; 
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 0.5em; 
+  font-size: 0.9rem; 
+  color: white;
+}
+
+article.cidades{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1vw;
+  background-color: white;
+}
+
+.cidades section{
+  display: flex;
+  margin: 10px;
+}
+
+.cidades img {
+  width: 100px; 
+  border-radius: 20px 0 0 20px; 
+}
+
+.cidades div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100%;
+  border-radius: 0 20px 20px 0;
+  background-color: white;
+  color: #000;
+}
+
+
+/* gallery */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.photo-item {
+  flex: 0 1 23%; /* 4 */
+  max-width: 23%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+.photo-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.transform-rotate-effect img:hover {
+  transform: rotate(50deg) 
+}
+
+.transform-effect img {
+  transition: transform 0.3s ease;
+}
+
+.transform-effect img:hover {
+  transform: scale(1.1);
+}
+
+.transform-skew-effect img:hover {
+  transform: skew(50deg,10deg);
+}
+
+#experimenta {
     display: flex; 
     justify-content: center; 
     align-items: center;
