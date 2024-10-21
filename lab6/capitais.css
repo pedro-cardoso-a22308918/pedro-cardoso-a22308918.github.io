@@ -229,4 +229,18 @@ footer {
   padding: 0 2vw;
   align-items: center;
 }
-  
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px); /*cai*/
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /*termina na posicao origem*/
+  }
+}
+
+header h1 {
+  animation: fadeInDown 1s ease-out; 
+}
