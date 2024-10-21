@@ -163,11 +163,26 @@
     display: block; /
 }
 
-  footer {
-    height:5vh;
-    display:flex;
-    justify-content: flex-end;
-    padding: 0 2vw;
-    align-items: center;
-  }
+.parallax {
+  height: 400px;
+  background-image: url('images/aurora_boreal.jpg'); /* Coloque aqui a imagem desejada */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 38px;
+
+}
+
+footer {
+  height:5vh;
+  display:flex;
+  justify-content: flex-end;
+  padding: 0 2vw;
+  align-items: center;
+}
   

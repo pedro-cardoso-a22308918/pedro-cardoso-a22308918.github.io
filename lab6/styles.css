@@ -1,19 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body{
     font-family: Arial;
     background-color: #faf4e5;
-}    
+    display: flex;
+    flex-direction: column;
+}
+
 header{
     text-align: center;
     background-color: #f9f2ec;
     text-transform: uppercase;
+    padding: 5px;
 }
+
+.title-header{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}   
+
 .imagem_header{
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10px;
-    width: 60%; 
-    height: 30%; 
+    width: 30%; 
+    height: 100%; 
 }
 
 .navbar {
@@ -29,9 +51,11 @@ header{
 }
 
 .navbar li {
+    position: relative;
     margin: 0px 2px;
     flex-grow: 1;
     text-align: center;
+    padding: 4px;
 }
 
 .navbar a {
@@ -50,10 +74,24 @@ header{
     background-color: #555555; 
 }
 
+main{
+    flex-grow: 1;
+    padding: 10px;
+    margin-top: 24px;
+}
+
+aside{
+    padding: 10px;
+    background-color: #eaeaea;
+    margin: 10px;
+}
+
 footer{
     text-align: center;
     background-color: #333333;
     color: #fff;
+    padding: 2px;
+    margin-top: 40px;
 }
 
 #fotografias h3, #video h3, #poema h3{
@@ -208,4 +246,171 @@ tbody tr:nth-child(even) { /*par*/
 
 ul li, ol li {
     font-size: 2em; /* font size 2x bigger thant father*/
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    body {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+    }
+    /* FALTA quando voltar a clicar no botao desaparecer menu */
+    .dropdown-menu
+    {
+        text-align: center;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: sticky;
+        background-color: #d9cc1d;
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 9px 8px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+      
+      
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    main, aside {
+        width: 100%;
+    }
+}
+
+/* Mobile Landscape */
+@media (min-width: 481px) and (max-width: 767px) {
+    .navbar ul {
+        flex-direction: row;
+        justify-content: space-around;
+        display: flex;
+    }
+
+    aside {
+        background-color: #e6e6e6;
+        margin-top: 20px;
+    }
+
+    header, footer {
+        padding: 20px;
+    }
+    
+}
+
+/* Tablet*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "aside main"
+            "footer footer";
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    aside {
+        grid-area: aside;
+    }
+
+    main {
+        grid-area: main;
+        padding: 30px;
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: #af4c4c;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+    }
+}
+
+/* Desktop 3 Columns */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    main, aside {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(33.33% - 20px); /* Três colunas com espaçamento */
+        margin: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: row;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    .dropdown {
+        display: none;
+    }
+}
+
+/* 4k */
+/* falta aproveitar o espaço */
+@media (min-width: 2560px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header header header"
+            "nav main aside aside"
+            "footer footer footer footer";
+    }
+
+    header {
+        grid-area: header;
+        padding: 50px;
+    }
+
+    nav {
+        grid-area: nav;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #333;
+        color: white;
+    }
+
+    main {
+        grid-area: main;
+        padding: 40px;
+    }
+
+    aside {
+        grid-area: aside;
+        background-color: #dcdcdc;
+        padding: 30px;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    .dropdown {
+        display: none;
+    }
 }
