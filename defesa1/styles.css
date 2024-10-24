@@ -58,21 +58,21 @@ main{
             "li li li"
             "li li li";
     justify-content: space-between;
-        
-    
 }
 
-a{
-    color: lightgray;
+.linklab{
+    color: white;
+    padding: 10px;
+    background-color: lightgray;
     text-decoration: none;
 }
 
-a:hover {
+.linklab:hover {
     background-color: black; 
 }
 
-a:nth-child(odd) { /*impar*/
-    color: gray;
+.linklab:nth-child(odd) { /*impar*/
+    background-color: gray;
 }
 
 section{
