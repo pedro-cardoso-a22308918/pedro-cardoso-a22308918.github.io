@@ -50,13 +50,50 @@ main{
     
 }
 
+.laboratorios{
+    display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "li li li"
+            "li li li";
+    justify-content: space-between;
+        
+    
+}
+
+a{
+    color: lightgray;
+    text-decoration: none;
+}
+
 a:hover {
     background-color: black; 
+}
+
+a:nth-child(odd) { /*impar*/
+    color: gray;
 }
 
 section{
     gap: 20px;
     padding: 20px;
     margin: 20px;
+}
+
+@media (max-width: 768px) {
+    body {
+        display: block;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "section"
+            "section"
+            "section"
+            "section"
+    }
 }
 
