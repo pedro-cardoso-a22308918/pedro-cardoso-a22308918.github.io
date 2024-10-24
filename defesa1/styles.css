@@ -1,0 +1,62 @@
+/*     flex-direction: column; */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.nomeAluno{
+    text-align: left;
+    color: black;
+    padding-top: 30px;
+}
+
+.headerDef{
+    background-color: gray;
+}
+
+.linkGithub{
+    align-items: right;
+    text-align: right;
+    justify-content: right;
+    color: white;
+}
+
+.pGithub{
+    justify-content: center;
+    text-align: right;
+    padding-bottom: 30px;
+}
+
+h1{
+    text-transform: bold;
+}
+
+main{
+    background-color: white;
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "section section"
+            "section section";
+    
+}
+
+a:hover {
+    background-color: black; 
+}
+
+section{
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
