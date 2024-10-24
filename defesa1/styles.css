@@ -65,12 +65,12 @@ main{
     text-decoration: none;
 }
 
-.linklab:hover {
-    background-color: black; 
-}
-
 .linklab:nth-child(odd) { /*impar*/
     background-color: gray;
+}
+
+.linklab:hover {
+    background-color: black; 
 }
 
 section{
