@@ -33,17 +33,17 @@ function mouseLeave(){
 
 
  //3.
-const colorInput = document.getElementById("color-input");
-const colors = ["red", "green", "blue", "yellow", "gray"];
-let colorIndex = 0;
-
-function changeBackgroundColor() {
-    colorInput.style.backgroundColor = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-}
-
-colorInput.addEventListener("input", changeBackgroundColor);
-colorInput.addEventListener("change", changeBackgroundColor);
+ const colorInput = document.getElementById("color-input");
+ const colors = ["red", "green", "blue", "yellow", "gray"];
+ let colorIndex = 0;
+ 
+ function changeBackgroundColor3() {
+     colorInput.style.backgroundColor = colors[colorIndex];
+     colorIndex = (colorIndex + 1) % colors.length;
+ }
+ 
+ colorInput.addEventListener("input", changeBackgroundColor3);
+ colorInput.addEventListener("change", changeBackgroundColor3);
 //4.
 
 const backGroundColorInput = document.getElementById("background-color-input");

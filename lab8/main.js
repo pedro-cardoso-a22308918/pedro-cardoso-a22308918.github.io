@@ -18,7 +18,6 @@ function mouseLeave(){
  function changeColorText(color) {
      colorDisplay.style .color = color;
  }
-
  document.getElementById('red-btn').addEventListener('click', function() {
      changeColorText('Red');
  });
@@ -32,7 +31,7 @@ function mouseLeave(){
  });
 
 
- //3.
+//3.
 const colorInput = document.getElementById("color-input");
 const colors = ["red", "green", "blue", "yellow", "gray"];
 let colorIndex = 0;
@@ -44,16 +43,6 @@ function changeBackgroundColor() {
 
 colorInput.addEventListener("input", changeBackgroundColor);
 colorInput.addEventListener("change", changeBackgroundColor);
-//4.
-
-const backGroundColorInput = document.getElementById("background-color-input");
-const submitButton = document.getElementById("submit-color");
-
-function changeBackgroundColor() {
-    document.body.style.backgroundColor = backGroundColorInput.value;
-}
-
-submitButton.addEventListener("click", changeBackgroundColor);
 
 //5. COUNT
 let count = 0;
@@ -66,11 +55,12 @@ incrementButton.addEventListener("click", function () {
 });
 
 //Escolher cor com options (4.)
+console.log('test');
 const colorOptions = document.getElementById('color-options');
 
-function changeBackgroundColor() {
+function changeBackgroundColorWithOption() {
     const selectedColor = colorOptions.value;
     document.body.style.backgroundColor = selectedColor;
 }
 
-colorOptions.addEventListener('change', changeBackgroundColor);
+colorOptions.addEventListener('change', changeBackgroundColorWithOption);
