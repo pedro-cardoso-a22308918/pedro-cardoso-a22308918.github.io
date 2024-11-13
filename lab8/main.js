@@ -1,34 +1,33 @@
 //fazer o query selector antes das funcoes
 
 // 1.Mouseover
-document.getElementById('hover-text').addEventListener('mouseenter', mouseEnter);
-document.getElementById('hover-text').addEventListener('mouseleave', mouseLeave);
-
-function mouseEnter(){
+document.getElementById('hover-text').addEventListener('mouseenter', () => {
     document.getElementById('hover-text').textContent = 'Obrigado por passares';
-}
+});
 
-function mouseLeave(){
+document.getElementById('hover-text').addEventListener('mouseleave', () => {
     document.getElementById('hover-text').textContent = 'Passa por aqui';
-}
+});
 
 //2.
- const colorDisplay = document.getElementById('color-display');
+const colorDisplay = document.getElementById('color-display');
+const buttons = document.querySelectorAll('#red-btn, #green-btn, #blue-btn');
 
- function changeColorText(color) {
-     colorDisplay.style .color = color;
- }
- document.getElementById('red-btn').addEventListener('click', function() {
-     changeColorText('Red');
- });
+function changeColorText(color) {
+    colorDisplay.style.color = color;
+}
 
- document.getElementById('green-btn').addEventListener('click', function() {
-     changeColorText('Green');
- });
-
- document.getElementById('blue-btn').addEventListener('click', function() {
-     changeColorText('Blue');
- });
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
+        if (buttons[i].id === 'red-btn') {
+            changeColorText('Red');
+        } else if (buttons[i].id === 'green-btn') {
+            changeColorText('Green');
+        } else if (buttons[i].id === 'blue-btn') {
+            changeColorText('Blue');
+        }
+    });
+}   
 
 
 //3.
@@ -54,13 +53,35 @@ incrementButton.addEventListener("click", function () {
     countDisplay.innerText = count;
 });
 
-//Escolher cor com options (4.)
-console.log('test');
-const colorOptions = document.getElementById('color-options');
-
-function changeBackgroundColorWithOption() {
-    const selectedColor = colorOptions.value;
-    document.body.style.backgroundColor = selectedColor;
+//(4.)Escolher cor com options 
+document.querySelector('select').onchange = function() {
+    document.querySelector('body').style.backgroundColor = this.value;
 }
 
-colorOptions.addEventListener('change', changeBackgroundColorWithOption);
+
+//6.
+const form = document.getElementById('form');
+const name = document.getElementById('name');
+const age = document.getElementById('age');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    result.innerHTML = `Olá ${name.value}, tens ${age.value} anos.`;
+});
+
+//7.
+if(!localStorage.getItem('automaticCounter')) {
+    localStorage.setItem('automaticCounter', 0);
+}
+
+const span = document.getElementById('span');
+function automaticCounter() {
+    let automaticCounter = localStorage.getItem('automaticCounter');
+    automaticCounter++;
+    document.querySelector('h1').textContent = automaticCounter;
+    localStorage.setItem('automaticCounter', automaticCounter);
+}
+setInterval(automaticCounter, 1000);
+
+document.querySelector('h1').textContent = localStorage.getItem('automaticCounter');
