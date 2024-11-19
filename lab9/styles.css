@@ -43,14 +43,6 @@ ul
     margin-top: 70px;
 }
 
-#title-cesto {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 30px;
-    margin-top: 70px;
-}
-
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -93,10 +85,24 @@ ul
     font-style: italic;
     margin-bottom: 40px;
 }
-.cesto
-{
+.cesto{
     background-color: rgb(128,4,124);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    text-align: center;
 }
+
+#title-cesto {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 70px;
+    grid-column: 1 / -1;  /*ocupa todas as colunas do grid */
+}
+
 
 footer
 {
