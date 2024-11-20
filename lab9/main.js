@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     carregarProdutos(produtos);
+    atualizaCesto();
 });
 
 function carregarProdutos(produto){
@@ -49,7 +50,12 @@ function criarProduto(produto){
 
 function adicionaProdutoAoCesto(produto){
     const cestoContainer = document.querySelector('.cesto');
+    const cestoProduto = criarProdutoNoCesto(produto);
+    cestoContainer.appendChild(cestoProduto);
+    guardarProdutoCesto(produto);
+}
 
+function criarProdutoNoCesto(produto){
     const cesto = document.createElement('section');
     cesto.classList.add("grid-item")
 
@@ -77,8 +83,38 @@ function adicionaProdutoAoCesto(produto){
     cesto.appendChild(botao);
 
     botao.addEventListener('click', function(){
-        removerProdutoDoCesto(produto);
+        removerProdutoDoCesto(cesto);
     });    
 
-    cestoContainer.appendChild(cesto);
+    return cesto;
 }
+
+function removerProdutoDoCesto(cesto){
+    const cestoContainer = document.querySelector('.cesto');
+    cestoContainer.removeChild(cesto);  
+
+    //se estiver vazio cria um array vazio se nao pega o que esta no local storage
+    let cestoProdutos = JSON.parse(localStorage.getItem('cestoProdutos')) || [];
+    //filtra o produto que é diferente do produto que foi removido
+    cestoProdutos = cestoProdutos.filter(item => item.id !== produto.id);
+    localStorage.setItem('cestoProdutos', JSON.stringify(cestoProdutos));
+}
+
+//utilizando local storage
+function guardarProdutoCesto(produto){
+    const cestoProdutos = JSON.parse(localStorage.getItem('cestoProdutos')) || [];
+    cestoProdutos.push(produto);
+    localStorage.setItem('cestoProdutos', JSON.stringify(cestoProdutos));
+}
+
+function atualizaCesto(){
+    const cestoContainer = document.querySelector('.cesto');
+    const cestoProdutos = JSON.parse(localStorage.getItem('cestoProdutos')) || [];
+
+    cestoProdutos.forEach(function(produto){
+        const cestoProduto = criarProdutoNoCesto(produto);
+        cestoContainer.appendChild(cestoProduto);
+    });
+}
+
+//TODO: falta mostrar o preço total do cesto
