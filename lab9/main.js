@@ -53,6 +53,7 @@ function adicionaProdutoAoCesto(produto){
     const cestoProduto = criarProdutoNoCesto(produto);
     cestoContainer.appendChild(cestoProduto);
     guardarProdutoCesto(produto);
+    calcularPrecoTotal();
 }
 
 function criarProdutoNoCesto(produto){
@@ -83,13 +84,13 @@ function criarProdutoNoCesto(produto){
     cesto.appendChild(botao);
 
     botao.addEventListener('click', function(){
-        removerProdutoDoCesto(cesto);
+        removerProdutoDoCesto(produto ,cesto);
     });    
 
     return cesto;
 }
 
-function removerProdutoDoCesto(cesto){
+function removerProdutoDoCesto(produto ,cesto){
     const cestoContainer = document.querySelector('.cesto');
     cestoContainer.removeChild(cesto);  
 
@@ -98,6 +99,7 @@ function removerProdutoDoCesto(cesto){
     //filtra o produto que é diferente do produto que foi removido
     cestoProdutos = cestoProdutos.filter(item => item.id !== produto.id);
     localStorage.setItem('cestoProdutos', JSON.stringify(cestoProdutos));
+    calcularPrecoTotal();
 }
 
 //utilizando local storage
@@ -115,6 +117,30 @@ function atualizaCesto(){
         const cestoProduto = criarProdutoNoCesto(produto);
         cestoContainer.appendChild(cestoProduto);
     });
+    
+    calcularPrecoTotal();
+
 }
 
 //TODO: falta mostrar o preço total do cesto
+function calcularPrecoTotal(){
+    const cestoProdutos = JSON.parse(localStorage.getItem('cestoProdutos')) || [];
+
+    const precoTotal = cestoProdutos.reduce((total, produto) => total + produto.price, 0);
+
+    const precoTotalElemento = document.querySelector('.product-cesto');
+
+    if (!precoTotalElemento) {
+        const novoPrecoTotalElemento = document.createElement('h1');
+
+        novoPrecoTotalElemento.classList.add('product-cesto');
+        novoPrecoTotalElemento.textContent = `Preço Total: ${precoTotal.toFixed(2)}€`;
+
+        const cestoContainer = document.querySelector('.cesto');
+        cestoContainer.appendChild(novoPrecoTotalElemento);
+
+    } else {
+        precoTotalElemento.textContent = `Preço Total: ${precoTotal.toFixed(2)}€`;
+    }
+
+}   

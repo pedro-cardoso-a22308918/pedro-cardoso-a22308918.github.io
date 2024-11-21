@@ -103,6 +103,14 @@ ul
     grid-column: 1 / -1;  /*ocupa todas as colunas do grid */
 }
 
+.product-cesto{
+    color: white;
+    font: optional;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+}
 
 footer
 {
