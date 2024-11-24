@@ -54,6 +54,11 @@ function carregarCategorias(categorias){
         option.textContent = categoria;
         categories.appendChild(option);
     });
+
+    categories.addEventListener("change", (event) => {
+        const categoriaSelecionada = event.target.value;
+        fetchProdutos(categoriaSelecionada); //FIXME: falta filtrar os produtos nesta função
+    });
   
 }
 
