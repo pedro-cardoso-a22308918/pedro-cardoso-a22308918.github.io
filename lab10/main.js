@@ -1,9 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    carregarProdutos(produtos);
+    fetchProdutos();
+    fetchCategorias();
     atualizaCesto();
 });
 
-function carregarProdutos(produto){
+function fetchProdutos(){
+    let getProdutos = 'https://deisishop.pythonanywhere.com/products/';
+
+    fetch(getProdutos)
+        .then(response => response.json()) //transforma a resposta em json
+        .then(produtos => {
+            console.log(produtos);//Debug
+            carregarProdutos(produtos);
+        })
+        .catch(error => { 
+            console.log('Erro produtos',error);
+        });
+
+}
+
+function carregarProdutos(produtos){
     const gridContainer = document.querySelector('.grid-container');
 
     produtos.forEach(function(produto){
@@ -12,6 +28,33 @@ function carregarProdutos(produto){
     
         console.log(produto);
     });
+}
+
+
+function fetchCategorias() {
+    const getCategorias = 'https://deisishop.pythonanywhere.com/categories/';
+
+    fetch(getCategorias)
+        .then(response => response.json())
+        .then(categorias => {
+            console.log(categorias);//Debug
+            carregarCategorias(categorias);
+        })
+        .catch(error => console.error('Erro categorias', error));
+}
+
+
+function carregarCategorias(categorias){
+    const categories = document.getElementById("categories");
+    if (!categories) return;
+
+    categorias.forEach(categoria => {
+        const option = document.createElement("option");
+        option.value = categoria;
+        option.textContent = categoria;
+        categories.appendChild(option);
+    });
+  
 }
 
 function criarProduto(produto){
