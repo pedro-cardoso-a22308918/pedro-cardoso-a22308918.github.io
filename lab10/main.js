@@ -4,19 +4,58 @@ document.addEventListener('DOMContentLoaded', function() {
     atualizaCesto();
 });
 
-function fetchProdutos(){
+
+document.getElementById('ordering').addEventListener('change', (event) => {
+    let ordernacao = event.target.value; 
+    let categoria = document.getElementById('categories').value;
+    fetchProdutos(categoria,ordernacao); 
+});
+
+document.getElementById('search').addEventListener('input', (event) => {
+    let pesquisa = event.target.value;
+    let categoria = document.getElementById('categories').value;
+    let ordernacao = document.getElementById('ordering').value;
+    fetchProdutos(categoria,ordernacao,pesquisa); 
+});
+
+//TODO: FAZER PESQUISA
+
+//parametro default(null|vazio) caso nao seja defenido
+function fetchProdutos(categoria = '', ordernacao = '', pesquisa = '') {
     let getProdutos = 'https://deisishop.pythonanywhere.com/products/';
 
     fetch(getProdutos)
-        .then(response => response.json()) //transforma a resposta em json
+        .then(response => response.json())//transforma a resposta em JSON
         .then(produtos => {
-            console.log(produtos);//Debug
-            carregarProdutos(produtos);
-        })
-        .catch(error => { 
-            console.log('Erro produtos',error);
-        });
+            console.log(produtos); // Debug
 
+            let produtosFiltrados;
+            if (categoria === 'all categories' || categoria === '') {
+                produtosFiltrados = produtos;
+            } else if (categoria) {
+                produtosFiltrados = produtos.filter(produto => produto.category === categoria);
+            }
+            
+            console.log(produtosFiltrados); // Debug
+
+            if (ordernacao === 'lowest') {
+                produtosFiltrados = produtosFiltrados.sort((a, b) => a.price - b.price); 
+            } else if (ordernacao === 'highest') {
+                produtosFiltrados = produtosFiltrados.sort((a, b) => b.price - a.price); 
+            }
+
+            console.log(produtosFiltrados); // Debug
+
+            if (pesquisa) {
+                produtosFiltrados = produtosFiltrados.filter(produto => produto.title.toLowerCase().includes(pesquisa.toLowerCase()));
+            }
+
+            limparProdutos();
+            carregarProdutos(produtosFiltrados); 
+        })
+        .catch(error => {
+            console.log('Erro produtos', error);
+        });
 }
 
 function carregarProdutos(produtos){
@@ -28,6 +67,13 @@ function carregarProdutos(produtos){
     
         console.log(produto);
     });
+}
+
+function limparProdutos(){
+    const containerProdutos = document.querySelector('.grid-container');
+    if (containerProdutos) {
+        containerProdutos.innerHTML = '';//remove produtos
+    }
 }
 
 
@@ -57,7 +103,8 @@ function carregarCategorias(categorias){
 
     categories.addEventListener("change", (event) => {
         const categoriaSelecionada = event.target.value;
-        fetchProdutos(categoriaSelecionada); //FIXME: falta filtrar os produtos nesta função
+        const ordering = document.getElementById('ordering').value;
+        fetchProdutos(categoriaSelecionada,ordering);
     });
   
 }
