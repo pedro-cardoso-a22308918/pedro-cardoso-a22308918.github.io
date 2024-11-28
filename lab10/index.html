@@ -11,8 +11,8 @@
         <h1 class="title-header">Loja</h1>
         <nav>
             <ul>
-                <li><p href=""class="element-header">Produtos</p></li>
-                <li><p href="" class="element-header">Cesto</p></li>
+                <li><a href="#produtos"class="element-header">Produtos</a></li>
+                <li><a href="#cesto" class="element-header">Cesto</a></li>
             </ul>
         </nav>
     </header>
@@ -41,7 +41,7 @@
 
 
     <!-- Produtos -->
-    <section class="grid-container">
+    <section class="grid-container" id="produtos">
 
         <!--<section class="grid-item">
             <h1 class="title-product">Teste</h1>
@@ -80,6 +80,21 @@
     <!-- Cesto -->
     <section class="cesto">
         <h1 id="title-cesto">Produtos Selecionados</h1>
+    </section>
+
+    <!-- TODO:adicionar por javascript -->
+    <section class="desconto-container" id="cesto">
+        <div class="desconto">
+            <label>
+                <input type="checkbox" id="estudante-checkbox" />És estudante do DEISI?
+            </label>
+            <div>
+                <label for="cupao-input">Cupão de desconto:</label>
+                <p>(Carregue em comprar para aparecer o desconto aplicado)</p>
+                <input type="text" id="cupao-input" placeholder="Digite o cupão" />
+            </div>
+            <button id="buy-button">Comprar</button>
+        </div>
     </section>
 
     <footer>2024</footer>

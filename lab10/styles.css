@@ -29,6 +29,7 @@ ul
     margin: 0;
     padding: 0;
     margin-right: 20px;
+    text-decoration: none;
 }
 
 .header p {
@@ -114,6 +115,26 @@ ul
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     text-align: center;
+}
+
+.desconto-container{
+    background-color: rgb(128,4,124);
+    padding: 10px;
+    display: block;
+    grid-gap: 10px;
+    text-align: center;
+}
+
+.desconto{
+    background-color: white;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-width: 70%;
+    margin: 0 auto;
 }
 
 #title-cesto {

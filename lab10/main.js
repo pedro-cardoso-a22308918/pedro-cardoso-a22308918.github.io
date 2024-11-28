@@ -18,7 +18,6 @@ document.getElementById('search').addEventListener('input', (event) => {
     fetchProdutos(categoria,ordernacao,pesquisa); 
 });
 
-//TODO: FAZER PESQUISA
 
 //parametro default(null|vazio) caso nao seja defenido
 function fetchProdutos(categoria = '', ordernacao = '', pesquisa = '') {
@@ -191,6 +190,7 @@ function removerProdutoDoCesto(produto ,cesto){
 
     //se estiver vazio cria um array vazio se nao pega o que esta no local storage
     let cestoProdutos = JSON.parse(localStorage.getItem('cestoProdutos')) || [];
+    
     //filtra o produto que é diferente do produto que foi removido
     cestoProdutos = cestoProdutos.filter(item => item.id !== produto.id);
     localStorage.setItem('cestoProdutos', JSON.stringify(cestoProdutos));
