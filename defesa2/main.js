@@ -28,7 +28,17 @@ document.getElementById('butaoAddAll').addEventListener('click', (event) => {
 
             let produtosFiltrados;
             produtosFiltrados = produtos;
-            adicionaProdutoAoCesto(produtosFiltrados);
+            
+            produtos.forEach(function(produto){
+                const cestoContainer = document.querySelector('.cesto');
+                const sectionProduto = criarProduto(produto);
+                gridContainer.appendChild(sectionProduto);
+
+                cestoContainer.appendChild(sectionProdutoProduto);
+                guardarProdutoCesto(produto);
+                calcularPrecoTotal();
+                console.log(produto);
+            });
         })
         .catch(error => {
             console.log('Erro produtos', error);
@@ -164,7 +174,8 @@ function criarProduto(produto){
     });
 
     hideDescription.addEventListener('click', function(){
-        this.descricao.textContent = '';
+        let produtosDescricao = document.querySelectorAll('.description-product');
+        produtosDescricao.innerHTML = '';
     });
 
     return productSection;
