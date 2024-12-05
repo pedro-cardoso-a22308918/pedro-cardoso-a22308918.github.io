@@ -171,8 +171,9 @@ function criarProduto(produto){
     });
 
     hideDescription.addEventListener('click', function(){
-        let produtosDescricao = document.querySelectorAll('.description-product');
-        produtosDescricao.innerHTML = '';
+        this.descricao.textContent = '';
+        //let produtosDescricao = document.querySelectorAll('.description-product');
+        //produtosDescricao.innerHTML = '';
     });
 
     return productSection;
