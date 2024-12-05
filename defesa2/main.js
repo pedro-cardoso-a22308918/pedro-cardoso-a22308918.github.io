@@ -18,6 +18,23 @@ document.getElementById('search').addEventListener('input', (event) => {
     fetchProdutos(categoria,ordernacao,pesquisa); 
 });
 
+document.getElementById('butaoAddAll').addEventListener('click', (event) => {
+    let getProdutos = 'https://deisishop.pythonanywhere.com/products/';
+
+    fetch(getProdutos)
+        .then(response => response.json())//transforma a resposta em JSON
+        .then(produtos => {
+            console.log(produtos); // Debug
+
+            let produtosFiltrados;
+            produtosFiltrados = produtos;
+            adicionaProdutoAoCesto(produtosFiltrados);
+        })
+        .catch(error => {
+            console.log('Erro produtos', error);
+        });
+});
+
 
 //parametro default(null|vazio) caso nao seja defenido
 function fetchProdutos(categoria = '', ordernacao = '', pesquisa = '') {
@@ -38,15 +55,15 @@ function fetchProdutos(categoria = '', ordernacao = '', pesquisa = '') {
             console.log(produtosFiltrados); // Debug
 
             if (ordernacao === 'lowest') {
-                produtosFiltrados = produtosFiltrados.sort((a, b) => a.price - b.price); 
+                produtosFiltrados = produtosFiltrados.sort((a, b) => a.rating.rate - b.rating.rate); 
             } else if (ordernacao === 'highest') {
-                produtosFiltrados = produtosFiltrados.sort((a, b) => b.price - a.price); 
+                produtosFiltrados = produtosFiltrados.sort((a, b) => b.rating.rate - a.rating.rate); 
             }
 
             console.log(produtosFiltrados); // Debug
 
             if (pesquisa) {
-                produtosFiltrados = produtosFiltrados.filter(produto => produto.title.toLowerCase().includes(pesquisa.toLowerCase()));
+                produtosFiltrados = produtosFiltrados.filter(produto => produto.title.toLowerCase().includes(pesquisa.toLowerCase()) || produto.description.includes(pesquisa));
             }
 
             limparProdutos();
@@ -126,6 +143,13 @@ function criarProduto(produto){
     preco.textContent = `Custo total:${produto.price}€`;
     productSection.appendChild(preco);
 
+    const hideDescription = document.createElement('button');
+    hideDescription.textContent = "menos info";
+    productSection.appendChild(hideDescription);
+    
+
+
+
     const descricao = document.createElement('p');
     descricao.classList.add("description-product");
     descricao.textContent = produto.description;
@@ -137,6 +161,10 @@ function criarProduto(produto){
 
     botao.addEventListener('click', function(){
         adicionaProdutoAoCesto(produto);
+    });
+
+    hideDescription.addEventListener('click', function(){
+        this.descricao.textContent = '';
     });
 
     return productSection;
