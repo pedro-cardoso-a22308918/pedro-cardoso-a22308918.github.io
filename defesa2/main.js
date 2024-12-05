@@ -31,13 +31,10 @@ document.getElementById('butaoAddAll').addEventListener('click', (event) => {
             
             produtos.forEach(function(produto){
                 const cestoContainer = document.querySelector('.cesto');
-                const sectionProduto = criarProduto(produto);
-                gridContainer.appendChild(sectionProduto);
-
-                cestoContainer.appendChild(sectionProdutoProduto);
+                const cestoProduto = criarProdutoNoCesto(produto);
+                cestoContainer.appendChild(cestoProduto);
                 guardarProdutoCesto(produto);
                 calcularPrecoTotal();
-                console.log(produto);
             });
         })
         .catch(error => {
