@@ -28,13 +28,17 @@
         <label for="order"><b>Ordenar</b></label>
         <select name="order" id="ordering">
             <option value="default"> Ordenar pelo preço</option>
-            <option value="lowest"> Ordenar por preço mais baixo</option>
-            <option value="highest"> Ordenar por preço mais alto</option>
+            <option value="lowest"> Ordenar por rating mais baixo</option>
+            <option value="highest"> Ordenar por rating mais alto</option>
         </select>
 
         <label for="search"><b>Procurar</b></label>
         <section>
             <input type="text" id="search" placeholder="pesquise por produto">
+        </section>
+
+        <section>
+            <button id="butaoAddAll">adicionar todos os produtos</button>
         </section>
 
     </section>
@@ -93,10 +97,13 @@
                 <p>(Carregue em comprar para aparecer o desconto aplicado)</p>
                 <input type="text" id="cupao-input" placeholder="Digite o cupão" />
             </div>
-            <br>
             <button id="buy-button">Comprar</button>
-            <p id="desconto-resultado"></p>
-        </div>
+
+            <div>
+                <label for="cupao-input">Morada:</label>
+                <input type="text" id="morada-input" placeholder="Digite a morada" />
+            </div>
+
         </section>
     </section>
 

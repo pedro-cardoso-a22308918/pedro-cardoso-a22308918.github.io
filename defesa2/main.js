@@ -4,23 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     atualizaCesto();
 });
 
-document
-  .getElementById("buy-button")
-  .addEventListener("click", function () {
-    const cestoProdutos = JSON.parse(localStorage.getItem('cestoProdutos')) || [];
-
-    let totalSemDesconto = document.querySelector(".product-cesto").textContent;
-    
-    totalSemDesconto = parseFloat(totalSemDesconto.replace('Preço Total: ', '').replace('€', '').trim());
-
-    const totalComDesconto = calculaDesconto(totalSemDesconto);
-
-    const estudante = document.getElementById('estudante-checkbox').checked;
-    const cupom = document.getElementById('cupao-input').value;
-
-    comprar(cestoProdutos.map(produto => produto.id), estudante, cupom);  //passa os ids dos produtos o estado do estudante e o cupom
-  });
-
 
 document.getElementById('ordering').addEventListener('change', (event) => {
     let ordernacao = event.target.value; 
@@ -33,6 +16,30 @@ document.getElementById('search').addEventListener('input', (event) => {
     let categoria = document.getElementById('categories').value;
     let ordernacao = document.getElementById('ordering').value;
     fetchProdutos(categoria,ordernacao,pesquisa); 
+});
+
+document.getElementById('butaoAddAll').addEventListener('click', (event) => {
+    let getProdutos = 'https://deisishop.pythonanywhere.com/products/';
+
+    fetch(getProdutos)
+        .then(response => response.json())//transforma a resposta em JSON
+        .then(produtos => {
+            console.log(produtos); // Debug
+
+            let produtosFiltrados;
+            produtosFiltrados = produtos;
+            
+            produtos.forEach(function(produto){
+                const cestoContainer = document.querySelector('.cesto');
+                const cestoProduto = criarProdutoNoCesto(produto);
+                cestoContainer.appendChild(cestoProduto);
+                guardarProdutoCesto(produto);
+                calcularPrecoTotal();
+            });
+        })
+        .catch(error => {
+            console.log('Erro produtos', error);
+        });
 });
 
 
@@ -55,15 +62,15 @@ function fetchProdutos(categoria = '', ordernacao = '', pesquisa = '') {
             console.log(produtosFiltrados); // Debug
 
             if (ordernacao === 'lowest') {
-                produtosFiltrados = produtosFiltrados.sort((a, b) => a.price - b.price); 
+                produtosFiltrados = produtosFiltrados.sort((a, b) => a.rating.rate - b.rating.rate); 
             } else if (ordernacao === 'highest') {
-                produtosFiltrados = produtosFiltrados.sort((a, b) => b.price - a.price); 
+                produtosFiltrados = produtosFiltrados.sort((a, b) => b.rating.rate - a.rating.rate); 
             }
 
             console.log(produtosFiltrados); // Debug
 
             if (pesquisa) {
-                produtosFiltrados = produtosFiltrados.filter(produto => produto.title.toLowerCase().includes(pesquisa.toLowerCase()));
+                produtosFiltrados = produtosFiltrados.filter(produto => produto.title.toLowerCase().includes(pesquisa.toLowerCase()) || produto.description.includes(pesquisa));
             }
 
             limparProdutos();
@@ -143,6 +150,13 @@ function criarProduto(produto){
     preco.textContent = `Custo total:${produto.price}€`;
     productSection.appendChild(preco);
 
+    const hideDescription = document.createElement('button');
+    hideDescription.textContent = "menos info";
+    productSection.appendChild(hideDescription);
+    
+
+
+
     const descricao = document.createElement('p');
     descricao.classList.add("description-product");
     descricao.textContent = produto.description;
@@ -154,6 +168,12 @@ function criarProduto(produto){
 
     botao.addEventListener('click', function(){
         adicionaProdutoAoCesto(produto);
+    });
+
+    hideDescription.addEventListener('click', function(){
+        this.descricao.textContent = '';
+        //let produtosDescricao = document.querySelectorAll('.description-product');
+        //produtosDescricao.innerHTML = '';
     });
 
     return productSection;
@@ -255,63 +275,3 @@ function calcularPrecoTotal(){
     }
 
 }   
-
-function calculaDesconto(totalSemDesconto){
-    const estudante = document.getElementById('estudante-checkbox').checked;
-    const cupaoInput = document.getElementById('cupao-input').value;
-
-    if(estudante){
-        totalSemDesconto *= 0.25;
-    }
-
-    if(cupaoInput === 'BLACKFRIDAY'){
-        totalSemDesconto *= 0.5;
-    }else if(cupaoInput === 'DEISI'){
-        totalSemDesconto *= 0.75;
-    }else if(cupaoInput === ''){
-        document.getElementById("desconto-resultado").textContent = "Cupão inválido!";
-        return total;
-    }
-
-    document.getElementById("desconto-resultado").textContent = `Preço com desconto: ${totalSemDesconto.toFixed(2)}€`;
-    return totalSemDesconto;
-}
-
-function comprar(produtos, estudante, cupom){
-    const data = {
-        products: produtos,  
-        student: estudante,  
-        coupon: cupom
-    };
-
-    fetch("https://deisishop.pythonanywhere.com/buy/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Erro HTTP: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((responseData) => {
-            if (responseData.error) {
-                document.getElementById(
-                  "desconto-resultado"
-                ).textContent = `Erro: ${responseData.error}`;
-              } else {
-        
-                document.getElementById(
-                  "desconto-resultado"
-                ).textContent = `Referência para pagamento: ${responseData.reference}, Total a pagar: ${responseData.totalCost}€`;
-              }
-            })
-            .catch((error) => {
-              document.getElementById(
-                "desconto-resultado"
-              ).textContent = `Erro ao processar o pagamento: ${error.message}`;
-            });
-}
